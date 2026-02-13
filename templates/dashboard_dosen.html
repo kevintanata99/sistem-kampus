@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portal Dosen</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow">
+        <div class="container">
+            <a class="navbar-brand" href="#">📚 RUANG DOSEN</a>
+            <span class="navbar-text text-white">
+                Selamat Mengajar, <b>{{ session['nama'] }}</b>
+            </span>
+            <a href="/logout" class="btn btn-light btn-sm text-success fw-bold">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="card shadow border-success">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">📝 Input Nilai Mahasiswa</h5>
+            </div>
+            <div class="card-body p-4">
+                <form action="/proses_nilai" method="POST">
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Username Mahasiswa</label>
+                        <input type="text" name="username_mhs" class="form-control" placeholder="Contoh: mhs1" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Mata Kuliah</label>
+                            <input type="text" name="matkul" class="form-control" placeholder="Contoh: Algoritma" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">SKS</label>
+                            <input type="number" name="sks" class="form-control" value="3" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Nilai (Huruf)</label>
+                            <select name="nilai" class="form-select">
+                                <option value="A">A</option>
+                                <option value="B+">B+</option>
+                                <option value="B">B</option>
+                                <option value="C+">C+</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100">💾 Simpan Nilai</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
